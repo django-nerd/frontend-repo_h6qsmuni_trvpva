@@ -5,23 +5,28 @@ import ParallaxShowcase from './components/ParallaxShowcase'
 import CTA from './components/CTA'
 import TeamCreator from './components/TeamCreator'
 import Leaderboard from './components/Leaderboard'
+import './components/CyberpunkTheme.css'
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="relative min-h-screen bg-[color:var(--cp-bg)]">
+      {/* global cyberpunk overlays */}
+      <div className="cp-noise" />
+      <div className="cp-scanline" />
+
       <Navbar />
       <Hero />
       <ParallaxShowcase />
       <Features />
 
       {/* App preview widgets */}
-      <section id="leaderboard" className="bg-slate-950 py-20">
+      <section id="leaderboard" className="relative bg-[color:var(--cp-bg)] py-20">
         <div className="max-w-6xl mx-auto px-6 grid gap-8 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.04] p-6">
+          <div className="relative rounded-2xl border border-[color:var(--cp-yellow)]/20 bg-gradient-to-b from-white/5 to-white/[0.04] p-6 cp-glow">
             <h3 className="text-white text-xl font-semibold mb-4">Create a Team</h3>
             <TeamCreator />
           </div>
-          <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.04] p-6">
+          <div className="relative rounded-2xl border border-[color:var(--cp-yellow)]/20 bg-gradient-to-b from-white/5 to-white/[0.04] p-6 cp-glow">
             <h3 className="text-white text-xl font-semibold mb-4">Top Teams</h3>
             <Leaderboard />
           </div>
@@ -40,11 +45,6 @@ function App() {
           </div>
         </div>
       </footer>
-
-      <style>{`
-        .input { @apply w-full border border-white/10 rounded-lg px-3 py-2 bg-white/5 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-fuchsia-500; }
-        .btn-primary { @apply inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white text-slate-900 font-medium hover:bg-slate-100 transition; }
-      `}</style>
     </div>
   )
 }
